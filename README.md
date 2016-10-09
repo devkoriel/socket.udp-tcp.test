@@ -37,7 +37,31 @@
 > Socket에 IP주소와 포트번호를 지정해 줍니다. 이로서 소켓을 통신에 사용할 수 있도록 준비가 됩니다.
 
 <br>
+### d. `close()`
+| Header | `#include <unistd.h>` |
+|:---:|:---|
+| Format | `int close(int fd);` |
+| Parameters | `int fd`: Socket Descriptor |
+| Return | _0_:	Success. <br> _-1_: Fail. |
+> Socket을 닫습니다.
 
+<br>
+### e. `recvfrom()`
+| Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
+|:---:|:---|
+| Format | `int recvfrom(int s, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen);` |
+| Parameters | `int s`: Socket Descriptor <br> `void *buf`: 자료 수신을 위한 버퍼 포인터 <br> `size_t len`: 버퍼의 바이트 단위 길이 <br> `int flags`: 수신을 위한 옵션 <br> `sockaddr *to`: 전송한 곳의 주소 정보 <br> `socklen_t tolen`: 전송한 곳의 주소 정보의 크기|
+| Return | _-1_ 이외:	실제로 수신한 바이트 수. <br> _-1_: Fail. |
+> UDP/IP 통신에서 소켓으로부터 데이터를 수신합니다.
+
+<br>
+### f. `sendto()`
+| Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
+|:---:|:---|
+| Format | `int sendto(int s, const void *msg, size_t len, int flags, const struct sockaddr *to, socklen_t tolen);` |
+| Parameters | `int s`: Socket Descriptor <br> `void *msg`: 전송할 메시지 <br> `size_t len`: 버퍼의 바이트 단위 길이 <br> `int flags`: 전송을 위한 옵션 <br> `sockaddr *to`: 목적지 주소 정보 <br> `socklen_t tolen`: 목적지 주소 정보의 크기|
+| Return | _-1_ 이외:	실제로 전송한 바이트 수. <br> _-1_: Fail. |
+> UDP/IP 통신에서 소켓으로 데이터를 전송합니다.
 
 ## 3. 결과 화면
 
