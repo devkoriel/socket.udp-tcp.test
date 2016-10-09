@@ -10,16 +10,16 @@
 ## 3. 결과 화면
 
 ### a. UDP Server
-![udp-server](/home/daniel/Pictures/Screenshots/스크린샷, 2016-10-09 19-09-19.png)
+![udp-server](https://koriel.co/img/personal/comnet/스크린샷, 2016-10-09 19-09-19.png)
 
 ### b. UDP Client
-![udp-client](/home/daniel/Pictures/Screenshots/스크린샷, 2016-10-09 19-08-31.png)
+![udp-client](https://koriel.co/img/personal/comnet/스크린샷, 2016-10-09 19-08-31.png)
 
 ### c. TCP Server
-![tcp-server](/home/daniel/Pictures/Screenshots/스크린샷, 2016-10-09 19-11-05.png)
+![tcp-server](https://koriel.co/img/personal/comnet/스크린샷, 2016-10-09 19-11-05.png)
 
 ### d. TCP Client
-![tcp-client](/home/daniel/Pictures/Screenshots/스크린샷, 2016-10-09 19-11-08.png)
+![tcp-client](https://koriel.co/img/personal/comnet/스크린샷, 2016-10-09 19-11-08.png)
 
 ### e. dst.jpg
-![dst-jpg](/home/daniel/Pictures/Screenshots/스크린샷, 2016-10-09 19-09-26.png)
+![dst-jpg](https://koriel.co/img/personal/comnet/스크린샷, 2016-10-09 19-09-26.png)
