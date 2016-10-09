@@ -40,7 +40,7 @@ void serverOpen(const char* port) {
         memset(&servAddr, 0, sizeof(servAddr));
         servAddr.sin_family = AF_INET;
         servAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-        servAddr.sin_port = htons(4000);
+        servAddr.sin_port = htons(atoi(port));
 
         assert(-1 != bind(serv_sock, (const struct sockaddr*)&servAddr, sizeof(servAddr)));
         printf("The server address information (ANYIP.%s) is bound.\n\n\n", port);
@@ -55,7 +55,7 @@ void serverOpen(const char* port) {
         printf("Ready to receive TCP connection request\n");
 
         clntAddrSize = sizeof(clntAddr);
-        assert(-1 != accept(serv_sock, (const struct sockaddr*)&clntAddr, &clntAddrSize));
+        assert(-1 != (clnt_sock = accept(serv_sock, (struct sockaddr*)&clntAddr, &clntAddrSize)));
 
         printf("a client (%s:%i) has been connected...\n\n\n", inet_ntoa(clntAddr.sin_addr), ntohs(clntAddr.sin_port));
 

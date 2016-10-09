@@ -49,7 +49,7 @@ void clientOpen(const char* ip, const char* port) {
         servAddr.sin_addr.s_addr = inet_addr(ip);
         servAddr.sin_port = htons(atoi(port));
 
-        assert(-1 != connect(clnt_sock, (const struct sockaddr*)&servAddr, sizeof(servAddr)));
+        assert(-1 != connect(clnt_sock, (struct sockaddr*)&servAddr, sizeof(servAddr)));
         printf("TCP connection has been constructed.\n");
 
         assert(askSending(ip, port));
@@ -80,7 +80,7 @@ void clientOpen(const char* ip, const char* port) {
                 usleep(500000);
         }
 
-        sendto(clnt_sock, &eof, sizeof(eof), 0, (const struct sockaddr*)&servAddr, sizeof(servAddr));
+        write(clnt_sock, &eof, sizeof(eof));
         printf("The file (%i Bytes) has been sent.\n", sentSize);
         fclose(fp);
 
