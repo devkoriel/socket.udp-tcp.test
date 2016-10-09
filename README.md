@@ -9,13 +9,13 @@
 
 ## 2. 함수 설명
 ### a. `socket()`
-소켓을 생성하여 반환합니다.
 
-Header |  `#include <sys/types.h>` <br> `#include <sys/socket.h>`
---|--
-Format  | `int socket(int domain, int type, int protocol);`
-Parameters  |  `int domain`: 인터넷을 통해 통신할 지, 같은 시스템 내에서 프로세스 끼리 통신할 지의 여부를 설정합니다. <br> `int type`: 데이터의 전송 형태를 지정하며 아래와 같은 값을 사용할 수 있습니다. <br> `int protocol`: 통신에 있어 특정 프로토콜을 사용을 지정하기 위한 변수이며, 보통 0 값을 사용합니다.
-Return Value  | _-1_ 이외: Socket Descriptor <br> _-1_: Fail  
+| Header |  `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
+| --|-- |
+| Format  | `int socket(int domain, int type, int protocol);` |
+| Parameters  |  `int domain`: 인터넷을 통해 통신할 지, 같은 시스템 내에서 프로세스 끼리 통신할 지의 여부를 설정합니다. <br> `int type`: 데이터의 전송 형태를 지정하며 아래와 같은 값을 사용할 수 있습니다. <br> `int protocol`: 통신에 있어 특정 프로토콜을 사용을 지정하기 위한 변수이며, 보통 0 값을 사용합니다. |
+| Return Value  | _-1_ 이외: Socket Descriptor <br> _-1_: Fail  |
+> Socket을 생성하여 반환합니다.
 
 ## 3. 결과 화면
 
