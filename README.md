@@ -7,6 +7,7 @@
 - 이동하
 - 방선국
 
+<br>
 ## 2. 함수 설명
 ### a. `socket()`
 
@@ -40,8 +41,8 @@
 ### d. `close()`
 | Header | `#include <unistd.h>` |
 |:---:|:---|
-| Format | `int close(int fd);` |
-| Parameters | `int fd`: Socket Descriptor |
+| Format | `int close(int s);` |
+| Parameters | `int s`: Socket Descriptor |
 | Return | _0_:	Success. <br> _-1_: Fail. |
 > Socket을 닫습니다.
 
@@ -63,6 +64,52 @@
 | Return | _-1_ 이외:	실제로 전송한 바이트 수. <br> _-1_: Fail. |
 > UDP/IP 통신에서 소켓으로 데이터를 전송합니다.
 
+<br>
+### g. `listen()`
+| Header | `#include <sys/socket.h>` |
+|:---:|:---|
+| Format | `int listen(int s, int backlog);` |
+| Parameters | `int s`: Socket Descriptor <br> `int backlog`: 대기 메시지 큐의 개수|
+| Return | _0_:	Success. <br> _-1_: Fail. |
+> 소켓을 통해 클라이언트의 접속 요청을 기다리도록 설정합니다.
+
+<br>
+### h. `accept()`
+| Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
+|:---:|:---|
+| Format | `int accept(int s, struct sockaddr *addr, socklen_t *addrlen);` |
+| Parameters | `int s`: Socket Descriptor <br> `struct sockaddr *addr`: 클라이언트 주소 정보를 가지고 있는 포인터 <br> `socklen_t addrlen`: struct sockaddr *addr 포인터가 가르키는 구조체의 크기|
+| Return |  _-1_ 이외: 새로운 Socket Descriptor. <br> _-1_: Fail. |
+> 클라이언트의 접속 요청을 받아드리고 클라이언트와 통신하는 전용 소켓을 생성합니다.
+
+<br>
+### i. `read()`
+| Header | `#include <unistd.h>` |
+|:---:|:---|
+| Format | `ssize_t read (int s, void *buf, size_t nbytes);` |
+| Parameters | `int s`: Socket Descriptor <br> `void *buf`: 소켓에서 데이터를 읽어들일 버퍼 <br> `size_t nbytes`: 버퍼의 크기|
+| Return |  _-1_ 이외: 읽어들인 바이트 수. <br> _-1_: Fail. |
+> 소켓의 데이터를 읽어들입니다.
+
+<br>
+### j. `connect()`
+| Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
+|:---:|:---|
+| Format | int connect(int sockfd, const struct sockaddr *serv_addr, socklen_t addrlen); |
+| Parameters | `int sockfd`: Socket Descriptor <br> `struct sockaddr *serv_addr`: 서버 주소 정보에 대한 포인터 <br> `socklen_t addrlen`: struct sockaddr *serv_addr 포인터가 가르키는 구조체의 크기|
+| Return |  _0_:	Success. <br> _-1_: Fail.  |
+> 생성한 소켓을 통해 서버로 접속을 요청합니다.
+
+<br>
+### k. `write()`
+| Header | `#include <unistd.h>` |
+|:---:|:---|
+| Format | `ssize_t write (int s, const void *buf, size_t n)` |
+| Parameters | `int s`: Socket Descriptor <br> `void *buf`: 소켓에 쓸 데이터를 담을 버퍼 <br> `size_t n`: 버퍼의 크기|
+| Return |  _-1_ 이외: 쓴 데이터의 바이트 수. <br> _-1_: Fail. |
+> 소켓에 데이터를 씁니다.
+
+<br>
 ## 3. 결과 화면
 
 ### a. UDP Server
