@@ -17,6 +17,7 @@
 | Return | _-1_ 이외: Socket Descriptor <br> _-1_: Fail  |
 > Socket을 생성하여 반환합니다.
 
+
 ### b. `memset()`
 | Header | `#include <string.h>` |
 |:---:|:---|
@@ -25,6 +26,7 @@
 | Return | `void *`:	s에 대한 포인터를 반환하며 실패하면 NULL을 반환한다. |
 > malloc() 이나 calloc() 에서 할당 받은 메모리를 특정 값으로 초기화합니다. 보통 어떤 작업을 하기 전에 NULL로 초기화할 때 많이 사용합니다.
 데이터를 읽어 들이거나 어떤 함수를 호출 후 메모리에 입력된 값을 처리하는 경우 미리 메모리를 초기화를 하는 것이 디버깅에 유리합니다.
+
 
 ### c. `bind()`
 | Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
