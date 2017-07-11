@@ -7,8 +7,8 @@
 - 이동하
 - 방선국
 
-<br>
 ## 2. 함수 설명
+
 ### a. `socket()`
 
 | Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
@@ -18,7 +18,6 @@
 | Return | _-1_ 이외: Socket Descriptor <br> _-1_: Fail  |
 > Socket을 생성하여 반환합니다.
 
-<br>
 ### b. `memset()`
 | Header | `#include <string.h>` |
 |:---:|:---|
@@ -28,34 +27,30 @@
 > malloc() 이나 calloc() 에서 할당 받은 메모리를 특정 값으로 초기화합니다. 보통 어떤 작업을 하기 전에 NULL로 초기화할 때 많이 사용합니다.
 데이터를 읽어 들이거나 어떤 함수를 호출 후 메모리에 입력된 값을 처리하는 경우 미리 메모리를 초기화를 하는 것이 디버깅에 유리합니다.
 
-<br>
 ### c. `bind()`
 | Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
 |:---:|:---|
 | Format | `int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);` |
 | Parameters | `int sockfd`: 소켓 디스크립터 <br> `struct sockaddr *myaddr`: 주소 정보로 인터넷을 이용하는 `AF_INET`인지 시스템 내에서 통신하는 `AF_UNIX`에 따라서 달라집니다. 인터넷을 통해 통신하는 `AF_INET`인 경우에는 `struct sockaddr_in`을 사용합니다. <br> `socklen_t addrlen`: myadd 구조체의 크기|
-| Return | _0_:	Success. <br> _-1_: Fail.|
+| Return | _0_:	Success. <br> _-1_: Fail  |
 > Socket에 IP주소와 포트번호를 지정해 줍니다. 이로서 소켓을 통신에 사용할 수 있도록 준비가 됩니다.
 
-<br>
 ### d. `close()`
 | Header | `#include <unistd.h>` |
 |:---:|:---|
 | Format | `int close(int s);` |
 | Parameters | `int s`: Socket Descriptor |
-| Return | _0_:	Success. <br> _-1_: Fail. |
+| Return | _0_:	Success. <br> _-1_: Fail  |
 > Socket을 닫습니다.
 
-<br>
 ### e. `recvfrom()`
 | Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
 |:---:|:---|
 | Format | `int recvfrom(int s, void *buf, size_t len, int flags, struct sockaddr *from, socklen_t *fromlen);` |
 | Parameters | `int s`: Socket Descriptor <br> `void *buf`: 자료 수신을 위한 버퍼 포인터 <br> `size_t len`: 버퍼의 바이트 단위 길이 <br> `int flags`: 수신을 위한 옵션 <br> `sockaddr *to`: 전송한 곳의 주소 정보 <br> `socklen_t tolen`: 전송한 곳의 주소 정보의 크기|
-| Return | _-1_ 이외:	실제로 수신한 바이트 수. <br> _-1_: Fail. |
+| Return | _-1_ 이외:	실제로 수신한 바이트 수. <br> _-1_: Fail  |
 > UDP/IP 통신에서 소켓으로부터 데이터를 수신합니다.
 
-<br>
 ### f. `sendto()`
 | Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
 |:---:|:---|
@@ -64,7 +59,6 @@
 | Return | _-1_ 이외:	실제로 전송한 바이트 수. <br> _-1_: Fail. |
 > UDP/IP 통신에서 소켓으로 데이터를 전송합니다.
 
-<br>
 ### g. `listen()`
 | Header | `#include <sys/socket.h>` |
 |:---:|:---|
@@ -73,7 +67,6 @@
 | Return | _0_:	Success. <br> _-1_: Fail. |
 > 소켓을 통해 클라이언트의 접속 요청을 기다리도록 설정합니다.
 
-<br>
 ### h. `accept()`
 | Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
 |:---:|:---|
@@ -82,7 +75,6 @@
 | Return |  _-1_ 이외: 새로운 Socket Descriptor. <br> _-1_: Fail. |
 > 클라이언트의 접속 요청을 받아드리고 클라이언트와 통신하는 전용 소켓을 생성합니다.
 
-<br>
 ### i. `read()`
 | Header | `#include <unistd.h>` |
 |:---:|:---|
@@ -91,7 +83,6 @@
 | Return |  _-1_ 이외: 읽어들인 바이트 수. <br> _-1_: Fail. |
 > 소켓의 데이터를 읽어들입니다.
 
-<br>
 ### j. `connect()`
 | Header | `#include <sys/types.h>` <br> `#include <sys/socket.h>` |
 |:---:|:---|
@@ -100,7 +91,6 @@
 | Return |  _0_:	Success. <br> _-1_: Fail.  |
 > 생성한 소켓을 통해 서버로 접속을 요청합니다.
 
-<br>
 ### k. `write()`
 | Header | `#include <unistd.h>` |
 |:---:|:---|
@@ -109,7 +99,6 @@
 | Return |  _-1_ 이외: 쓴 데이터의 바이트 수. <br> _-1_: Fail. |
 > 소켓에 데이터를 씁니다.
 
-<br>
 ## 3. 결과 화면
 
 ### a. UDP Server
